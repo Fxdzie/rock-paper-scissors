@@ -60,4 +60,16 @@ function playGame(){
                 break;
         }
     }
+    for(let i=0;i<5;i++){
+        playRound(getHumanChoice(),getComputerChoice());
+    }
+    if(humanScore<computerScore){
+        alert("Sorry!! You have lost the game");
+    }else if(humanScore>computerScore){
+        alert("Congratulations!! You have won the game");
+    }else{
+        alert("Well...Looks like a tie");
+    }
 }
+
+playGame();
