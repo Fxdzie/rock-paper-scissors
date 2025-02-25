@@ -2,6 +2,8 @@ const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
 const resultsText = document.querySelector(".results");
+const userScoreText = document.querySelector(".user");
+const computerScoreText = document.querySelector(".computer");
 
 let humanScore = 0;
 let computerScore = 0;
@@ -13,9 +15,11 @@ function playRound(humanChoice,computerChoice){
             if(computerChoice === "scissors"){
                 resultsText.innerText = "You win! Rock beats Scissors";
                 humanScore++;
+                userScoreText.innerText = `User: ${humanScore}`;
             }else if(computerChoice==="paper"){
                 resultsText.innerText = "You lose! Paper beats Rock";
                 computerScore++;
+                computerScoreText.innerText = `Computer: ${computerScore}`;
             }else{
                 resultsText.innerText = "Interesting. Looks like its a tie.";
             }
@@ -24,11 +28,13 @@ function playRound(humanChoice,computerChoice){
             if(computerChoice === "scissors"){
                 resultsText.innerText = "You lose! Scissors beats Paper";
                 computerScore++;
+                computerScoreText.innerText = `Computer: ${computerScore}`;
             }else if(computerChoice==="paper"){
                 resultsText.innerText = "Interesting. Looks like its a tie.";
             }else{
                 resultsText.innerText = "You win! Paper beats Rock";
                 humanScore++;
+                userScoreText.innerText = `User: ${humanScore}`;
             }
             break;
         case "scissors":
@@ -37,9 +43,11 @@ function playRound(humanChoice,computerChoice){
             }else if(computerChoice==="paper"){
                 resultsText.innerText = "You win! Scissors beats Paper";
                 humanScore++;
+                userScoreText.innerText = `User: ${humanScore}`;
             }else{
                 resultsText.innerText = "You lose! Rock beats Scissors";
                 computerScore++;
+                computerScoreText.innerText = `Computer: ${computerScore}`;
             }
             break;
     }
@@ -80,5 +88,6 @@ function playGame(){
     //     alert("Well...Looks like a tie");
     // }
 }
+
 
 
