@@ -8,6 +8,27 @@ const computerScoreText = document.querySelector(".computer");
 let humanScore = 0;
 let computerScore = 0;
 
+function refresh(){
+    humanScore = 0;
+    computerScore = 0;
+    resultsText.innerText = '';
+    userScoreText.innerText = "User: 0";
+    computerScoreText.innerText = "Computer: 0";
+}
+
+function checkWinner(){
+    if(computerScore === 5 && humanScore < 5){
+        resultsText.innerText = "YOU HAVE LOST...";
+        setTimeout(refresh,5000);
+        return;
+    }
+    if(humanScore ===5 && computerScore <5){
+        resultsText.innerText = "YOU HAVE WON...";
+        setTimeout(refresh,5000);
+        return;
+    }
+}
+
 function playRound(humanChoice,computerChoice){
         
     switch(humanChoice){
@@ -51,6 +72,7 @@ function playRound(humanChoice,computerChoice){
             }
             break;
     }
+    checkWinner();
 }
 
 rockButton.addEventListener("click",()=>{playRound("rock",getComputerChoice())});
@@ -66,27 +88,6 @@ function getComputerChoice(){
     }else {
         return "scissors";
     }
-}
-
-function getHumanChoice(){
-    let choice = prompt("What will you choose. Rock, Paper or Scissors").toLowerCase();
-        while(choice!=="rock" && choice!=="paper" && choice !== "scissors"){
-            alert("Oops, we didn't catch that");
-            choice = prompt("What will you choose. Rock, Paper or Scissors").toLowerCase();
-        }
-    return choice;
-}
-
-function playGame(){
-    
-    
-    // if(humanScore<computerScore){
-    //     alert("Sorry!! You have lost the game");
-    // }else if(humanScore>computerScore){
-    //     alert("Congratulations!! You have won the game");
-    // }else{
-    //     alert("Well...Looks like a tie");
-    // }
 }
 
 
